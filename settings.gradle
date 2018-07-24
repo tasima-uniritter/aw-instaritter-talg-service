@@ -1,0 +1,5 @@
+rootProject.name = 'aw-instaritter-talg-service'
+include 'application'
+findProject(':application')?.name = 'aplication'
+include 'application'
+
