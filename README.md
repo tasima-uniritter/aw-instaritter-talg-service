@@ -48,7 +48,7 @@ Exemple to produces:
    } 
 ``` 
    
-#### PUT /api/photos
+#### POST /api/photos
 
 Exemple to consumes:
 ``` 
