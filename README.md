@@ -1,6 +1,8 @@
 # aw-instaritter-talg-service
 
 
+## Swagger: 
+
 ``` http://localhost:8081/api/swagger-ui.html#/ ``
 
 ## Endpoints:
