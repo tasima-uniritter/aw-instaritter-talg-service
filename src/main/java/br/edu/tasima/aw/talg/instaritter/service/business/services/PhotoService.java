@@ -61,8 +61,9 @@ public class PhotoService {
      * Save a new photo.
      *
      * @param photo new object {@link Photo}
+     * @return Object {@link Photo}
      */
-    public void save(Photo photo){
-        repository.save(photo);
+    public Photo save(Photo photo){
+        return repository.save(photo);
     }
 }

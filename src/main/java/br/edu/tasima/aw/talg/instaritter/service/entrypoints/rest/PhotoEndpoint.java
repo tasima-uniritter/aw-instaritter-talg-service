@@ -6,9 +6,8 @@ import br.edu.tasima.aw.talg.instaritter.service.entrypoints.converters.PhotoCon
 import br.edu.tasima.aw.talg.instaritter.service.entrypoints.dto.PhotoDto;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,8 @@ import java.util.Optional;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
-@RestController("/photos")
+@RestController
+@RequestMapping("/photos")
 public class PhotoEndpoint {
 
     private PhotoService service;
@@ -26,7 +26,7 @@ public class PhotoEndpoint {
         this.service = service;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Resource<PhotoDto> findOne(@PathVariable int id) throws Exception {
         Optional<Photo> photo = service.findById(id);
 
@@ -44,7 +44,7 @@ public class PhotoEndpoint {
 
     }
 
-    @GetMapping("/")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<PhotoDto> findAll(){
         List<Photo> all = service.findAll();
 
@@ -55,5 +55,12 @@ public class PhotoEndpoint {
         }
 
         return photoDtos;
+    }
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PhotoDto add(@RequestBody PhotoDto dto){
+        return PhotoConverter.photoToDto(
+                service.save(
+                        PhotoConverter.photoDtoToPhoto(dto)));
     }
 }

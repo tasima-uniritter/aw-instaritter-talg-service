@@ -29,4 +29,14 @@ public class PhotoConverter {
 
         return photosDtos;
     }
+
+    /**
+     * Converter {@link PhotoDto} to {@link Photo}
+     *
+     * @param dto
+     * @return
+     */
+    public static Photo photoDtoToPhoto(PhotoDto dto) {
+        return new Photo(dto.getId(), dto.getImage(), dto.getDateTime(), dto.getDescription());
+    }
 }
