@@ -25,7 +25,7 @@ public class PhotoService {
      * @param id id from {@link Photo}
      * @return {@link Photo}
      */
-    public Photo findOne(Integer id){
+    public Photo findOne(Integer id) {
         return repository.getOne(id);
     }
 
@@ -44,7 +44,7 @@ public class PhotoService {
      *
      * @return list of {@link Photo}
      */
-    public List<Photo> findAll(){
+    public List<Photo> findAll() {
         return repository.findAll();
     }
 
@@ -53,7 +53,7 @@ public class PhotoService {
      *
      * @param id id of photo.
      */
-    public void delete(Integer id){
+    public void delete(Integer id) {
         repository.deleteById(id);
     }
 
@@ -63,7 +63,7 @@ public class PhotoService {
      * @param photo new object {@link Photo}
      * @return Object {@link Photo}
      */
-    public Photo save(Photo photo){
+    public Photo save(Photo photo) {
         return repository.save(photo);
     }
 }

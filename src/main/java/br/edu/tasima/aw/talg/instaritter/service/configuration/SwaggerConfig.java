@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class SwaggerConfig {
 
     @Bean
-    public Docket customImplementation(){
+    public Docket customImplementation() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(getApiInfo())
                 .select()

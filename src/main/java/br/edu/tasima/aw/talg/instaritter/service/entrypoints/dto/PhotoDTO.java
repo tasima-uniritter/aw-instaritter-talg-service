@@ -4,18 +4,13 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class PhotoDto {
+public class PhotoDTO {
 
     private Integer id;
-
-    private byte[] image;
-
+    private String image;
     private LocalDateTime dateTime;
-
     private String description;
 }

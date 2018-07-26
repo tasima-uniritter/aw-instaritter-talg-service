@@ -9,13 +9,10 @@ import javax.persistence.Lob;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
+@Data
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 public class Photo {
 
     @Id
@@ -23,7 +20,7 @@ public class Photo {
     private Integer id;
 
     @Lob
-    private byte[] image;
+    private String image;
 
     private LocalDateTime dateTime;
 

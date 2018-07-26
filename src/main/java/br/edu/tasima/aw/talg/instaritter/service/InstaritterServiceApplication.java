@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AwInstaritterTalgServiceApplication {
+public class InstaritterServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AwInstaritterTalgServiceApplication.class, args);
+        SpringApplication.run(InstaritterServiceApplication.class, args);
     }
 }
