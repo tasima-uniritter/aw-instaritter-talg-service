@@ -34,7 +34,7 @@ public class PhotoEndpoint {
             throw new Exception("Photo not found");
         }
 
-        PhotoDto photoDto = PhotoConverter.photoToDto(photo.get());
+        PhotoDto photoDto = PhotoConverter.photoToPhotoDto(photo.get());
 
         Resource<PhotoDto> resource = new Resource<>(photoDto);
         ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).findAll());
@@ -57,10 +57,10 @@ public class PhotoEndpoint {
         return photoDtos;
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public PhotoDto add(@RequestBody PhotoDto dto){
-        return PhotoConverter.photoToDto(
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PhotoDto add(@RequestBody PhotoDto photo){
+        return PhotoConverter.photoToPhotoDto(
                 service.save(
-                        PhotoConverter.photoDtoToPhoto(dto)));
+                        PhotoConverter.photoDtoToPhoto(photo)));
     }
 }

@@ -13,7 +13,7 @@ public class PhotoConverter {
      * @param photo object {@link Photo}
      * @return object {@link PhotoDto}
      */
-    public static PhotoDto photoToDto(Photo photo){
+    public static PhotoDto photoToPhotoDto(Photo photo){
         return new PhotoDto(photo.getId(), photo.getImage(), photo.getDateTime(), photo.getDescription());
     }
 
@@ -25,7 +25,7 @@ public class PhotoConverter {
     public static List<PhotoDto> listPhotoToListPhotoDto(List<Photo> photos){
 
         List<PhotoDto> photosDtos = new ArrayList<>();
-        photos.forEach(photo -> photosDtos.add(photoToDto(photo)));
+        photos.forEach(photo -> photosDtos.add(photoToPhotoDto(photo)));
 
         return photosDtos;
     }
