@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+    - echo Build started on `date`
+    - sh gradlew clean assemble
+artifacts:
+  files:
+  - appspec.yml
+  - 'build/libs/*.jar'
+  - start_application.sh
+  discard-paths: yes
