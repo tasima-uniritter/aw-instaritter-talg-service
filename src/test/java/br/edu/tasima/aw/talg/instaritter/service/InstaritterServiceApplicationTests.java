@@ -12,5 +12,4 @@ public class InstaritterServiceApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }

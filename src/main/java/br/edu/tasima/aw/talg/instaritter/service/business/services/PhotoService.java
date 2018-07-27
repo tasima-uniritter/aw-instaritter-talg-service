@@ -25,7 +25,7 @@ public class PhotoService {
      * @param id id from {@link Photo}
      * @return {@link Photo}
      */
-    public Photo findOne(Integer id) {
+    public Photo findOne(Long id) {
         return repository.getOne(id);
     }
 
@@ -35,7 +35,7 @@ public class PhotoService {
      * @param id id from {@link Photo}
      * @return return a Optiona Photo.
      */
-    public Optional<Photo> findById(int id) {
+    public Optional<Photo> findById(Long id) {
         return repository.findById(id);
     }
 
@@ -53,7 +53,7 @@ public class PhotoService {
      *
      * @param id id of photo.
      */
-    public void delete(Integer id) {
+    public void delete(Long id) {
         repository.deleteById(id);
     }
 

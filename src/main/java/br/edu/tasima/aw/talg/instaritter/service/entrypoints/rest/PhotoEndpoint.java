@@ -28,7 +28,7 @@ public class PhotoEndpoint {
     private PhotoConverter converter;
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Resource<PhotoDTO> findOne(@PathVariable int id) throws Exception {
+    public Resource<PhotoDTO> findOne(@PathVariable Long id) throws Exception {
         Optional<Photo> photo = service.findById(id);
 
         if (!photo.isPresent()) {
@@ -57,9 +57,17 @@ public class PhotoEndpoint {
         return photoDTOList;
     }
 
-    @PutMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public PhotoDTO save(@RequestBody PhotoDTO photo) {
         Photo photoToSave = converter.convert(photo);
         return dtoConverter.convert(service.save(photoToSave));
+    }
+
+    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void delete(@PathVariable Long id) throws Exception {
+        if(!service.findById(id).isPresent()){
+            throw new Exception("Photo not found");
+        }
+        service.delete(id);
     }
 }

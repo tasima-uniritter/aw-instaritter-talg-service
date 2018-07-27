@@ -2,10 +2,7 @@ package br.edu.tasima.aw.talg.instaritter.service.core.entities;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
@@ -16,14 +13,14 @@ import java.time.LocalDateTime;
 public class Photo {
 
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="seq_photo")
+    @SequenceGenerator(name="seq_photo", sequenceName="seq_photo")
+    private Long id;
 
     @Lob
     private String image;
 
     private LocalDateTime dateTime;
 
-    @Size(min = 255, message = "Description not be more 255 characters")
     private String description;
 }
