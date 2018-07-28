@@ -1,5 +1,11 @@
-# aw-instaritter-talg-service
+# Trabalho — APP InstaRitter (insta-ritter)   
 
+## Grupo
+
+* Alex Silveira  
+* Lucas Gentile  
+* Gelson Gonçalves  
+* Tiago Xavier  
 
 ## Swagger: 
 
@@ -48,7 +54,7 @@ Exemple to produces:
    } 
 ``` 
    
-#### POST /api/photos
+#### PUT /api/photos
 
 Exemple to consumes:
 ``` 
@@ -58,4 +64,14 @@ Exemple to consumes:
       "id": 0,
       "image": "string"
     } 
+```
+
+   
+#### DELETE /api/photos
+
+Exemple to consumes:
+``` 
+{
+      "id": 0,
+} 
 ```
